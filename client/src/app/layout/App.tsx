@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 import type { Product } from "../models/product";
+import Catalog from "../../features/catalog/Catalog";
+import { Container, Typography } from "@mui/material";
 
 function App() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -26,16 +28,10 @@ function App() {
 
 
   return (
-    <div>
-      <h1>Re-store</h1>
-      <ul>
-        {products.map((item, index )=> (
-          <li key={index}>{item.name} - {item.price}</li>
-        ))}
-      </ul>
-      {/* // need to defer addProduct() until the button is clicked, it's being executed as soon as the component is rendered, so no ()*/}
-      <button onClick={addProduct}>Add Product</button>
-    </div>
+    <Container maxWidth='xl'>
+      <Typography variant="h4">Re-store</Typography>
+      <Catalog products={products} addProduct={addProduct}/>
+    </Container>
   )
 }
 

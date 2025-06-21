@@ -15,6 +15,7 @@ public class DbInitializer
         SeedData(context);
 
     }
+    //big commit 
 
     public static void SeedData(StoreContext context)
     {
